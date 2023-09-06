@@ -70,13 +70,6 @@ class DetailNote(LoginRequiredMixin , DetailView):
     context_object_name ="mynote"
 
 
-"""class Signmeup(CreateView):
-    model = User
-    template_name = "signup.html"
-    fields = ['username','password']
-    success_url = reverse_lazy('signin')
-"""
-
 def sign_up(request):
     if request.method == 'GET':
         form = RegisterForm()
