@@ -1,0 +1,26 @@
+{%extends "base.html"%}
+
+{%block content%}
+<div class="container-fluid" style="margin-top:2em;background-color:#cfead9;height:10em;padding-top:2em;">
+    <div class="jumbotron jumbotron-fluid" >
+      <div class="container" >
+        <h1 class="display-4" style="font-weight:bold; text-transform:uppercase;">Add New Note</h1>
+      </div>
+    </div>
+    </div>
+    <div class="container" style="width:50%;margin-top:2em;background-color:#fdfbf2;margin-bottom:4em;">
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="mb-3">
+        
+        <label for="exampleInputEmail1" class="form-label" style="font-weight:bold;">Title</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="title" value="{{noteupdate.title}}">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label" style="font-weight:bold;">Note</label>
+        <textarea type="text" class="form-control" id="exampleInputPassword1" name="note"  style="height:8em;">{{noteupdate.note}}</textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" style="width:40%;margin-left:30%;background-color:#66cdaa;border:none;font-weight:bold;">Add Note</button><br><br>
+    </form>
+    </div>
+{%endblock%}

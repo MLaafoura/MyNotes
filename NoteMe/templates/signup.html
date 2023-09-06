@@ -1,0 +1,87 @@
+{%extends "base.html"%}
+
+{%block content%}
+
+<div class="container-fluid" style="background-color:#cfead9;height:13em;padding-top:2em; margin-bottom:4em;">
+    <div class="jumbotron jumbotron-fluid" >
+      <div class="container" >
+        <h1 class="display-4" style="font-weight:bold; display:inline;">Mouaad Notes Website</h1> 
+        <a href="{%url 'homepage'%}" style="text-decoration:none; color:black;font-weight:bold;float:right;margin-right:-5em;"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16" style="display:inline; margin-top:-1em;margin-left:2em;">
+            <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+          </svg> <span style="font-size:1.2em; margin-left:0.5em; margin-top:-1em;">Sign-in</span></a>
+        <p class="lead" style="font-weight:bold;">This is the official website for taking notes.</p>
+        <p class="lead" style="font-weight:bold;">Create your account and join us Now ! :) </p>
+      </div>
+    </div>
+    </div>
+
+<style>
+    .container label{
+        font-weight:bold;
+        margin-bottom:1em;
+        margin-top:1em;
+        color:#535E4B;
+        display:block;
+    }
+    .container button{
+        margin-top:2em;
+        width:14em;
+        height:3em;
+        float:right;
+        margin-right:30%;
+        background-color:#535E4B;
+        font-weight:bold;
+        text-transform:uppercase;
+        border:none;
+    }
+    .container button:hover, .container button:active{
+        background-color:#C1C2AD;
+        color:#535E4B;
+    }
+    
+    #id_username , #id_password1 , #id_password2 {
+        border:none;
+        border:0.1em solid #C1C2AD;
+        font-weight:bold;
+        width:70%;
+        margin-left:1em;
+        height:2em;
+        border-radius:0.3em;
+        
+    }
+    .errorlist{
+        list-style:none;
+        margin-left:2em;
+        
+    }
+    ul{
+        font-weight:bold;
+        display:inline;
+       
+    }
+     ul li ul li {
+        font-weight:Normal;
+        display:inline; 
+    }
+</style>
+<div class="container" style="width:60%;height:auto; margin-left:20%;">
+    <form method="POST">
+        {%csrf_token%}
+        <div class="form-group">
+        <label for="Username">Username</label>
+        {{ form.username }}	
+        </div>
+        <div class="form-group" >
+        <label for="exampleInputPassword1">Password</label>
+        {{ form.password1 }}
+        <label for="exampleInputPassword1">Re-peat Password</label>
+        {{ form.password2 }}	
+        </div>
+        {%if form.errors%}
+            {{form.errors}}
+        {%endif%}
+        	
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+  </form>
+</div>
+{%endblock%}

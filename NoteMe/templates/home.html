@@ -1,0 +1,38 @@
+{%extends "base.html"%}
+
+{%block content%}
+
+    <div class="container-fluid" style="margin-top:1em;background-color:#cfead9; margin-bottom:5em;">
+        <div class="jumbotron" style="margin-left:4em;">
+            <h1 class="display-4" style="font-weight:bold;text-transform:uppercase;">My Notes</h1>
+            <p class="lead">Create New Notes In An Easy Way!</p>
+            <hr class="my-4">
+            
+            <p class="lead" >
+              <a class="btn btn-primary btn-lg" href="{%url 'createnote'%}" role="button" style="width:20%;background-color:#66cdaa;border:none;font-weight:bold;margin-bottom:1em;">Add New Note</a>
+            </p>
+          </div>
+    </div>
+
+   
+    <div class="container" style="margin-bottom:2em;">
+
+        <div class="row">
+            {%for note in notes%}
+            <div class="col-sm-6">
+              <div class="card" style="margin:1em;">
+                <div class="card-body">
+                  <h5 class="card-title">{{note.title}}</h5>
+                  <p class="card-text">{{note.note}}</p>
+                  <a href="{%url 'shownote' pk=note.pk%}" class="btn btn-primary" style="background-color:#66cdaa;border:none;font-weight:bold;">View</a>
+                  <a href="{%url 'updatenote' pk=note.pk%}" class="btn btn-primary" style="background-color:#AC8E60;border:none;font-weight:bold;">Update</a>
+                  <a href="{%url 'deletenote' pk=note.pk%}" class="btn btn-primary" style="background-color:#8F3B21;border:none;font-weight:bold;">Delete</a>
+                </div>
+              </div>
+            </div>
+            {%endfor%}
+          </div>
+
+          
+    </div>
+{%endblock%}

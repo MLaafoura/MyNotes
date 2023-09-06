@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{%block content%}
+<div class="container-xl" style="background-color:#E9E6E2; width:90%;height:30em; margin-top:2em;text-align:center;padding-top:1em;margin-bottom:5em;border-radius:1em;">
+    
+    <h1 style="text-transform: uppercase;">{{mynote.title}}</h1>
+    <p style="margin-top:1em;float:left;margin-left:4em;font-size:24px;">{{mynote.note}}</p>
+    <button style="width:10em;height:2em;margin-top:22em;margin-left:-32em;border:none;font-weight:bold;background-color:#C1C2AD;color:white;">Print</button>
+</div>
+{%endblock%}

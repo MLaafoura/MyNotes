@@ -1,0 +1,17 @@
+{%extends "base.html"%}
+
+{%block content%}
+<div class="container-fluid" style="background-color:#AAD6A0;height:20em;padding-top:2em;margin-bottom:20em;margin-top:1em;">
+    
+        
+        <h1 style="color:#104210;margin-left:2em;margin-top:1em;">Are You sure of deleting the ' {{obj.title}} '?</h1>
+        <div class="mybtns" style="margin-left:38%;margin-top:7em;wdith:50%; display:flex; ">
+            <form method="POST" style="display:align;">
+                {%csrf_token%}
+                <input type="submit" value="delete" style="background-color:#DF362D;width:10em;height:3em;color:white;text-transform:uppercase;border:none;border-radius:0.4em 1em ; font-weight:bold;">
+            </form> 
+            <button style="background-color:#A0877D;width:10em;height:3em;color:white;text-transform:uppercase;border:none;border-radius:0.4em 1em ; font-weight:bold; display:align; margin-left:1em; " onclick="location.href='../'">Cancel</button>
+        </div>
+        
+</div>
+{%endblock%}
